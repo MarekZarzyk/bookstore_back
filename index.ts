@@ -1,6 +1,8 @@
 import express, { json } from "express";
 import cors from "cors";
 import "express-async-errors";
+import { handleError } from "./utils/errors";
+import { BookRouter } from "./routers/book.router";
 
 const app = express();
 
@@ -10,6 +12,9 @@ app.use(
   })
 );
 app.use(json());
+app.use("/book", BookRouter);
+
+app.use(handleError);
 
 app.listen(3001, "0.0.0.0", () => {
   console.log("listening on port http://localhost:3001");
