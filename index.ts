@@ -1,3 +1,5 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import express, { json } from "express";
 import cors from "cors";
 import "express-async-errors";
@@ -12,7 +14,7 @@ app.use(
   })
 );
 app.use(json());
-app.use("/book", BookRouter);
+app.use("/books", BookRouter);
 
 app.use(handleError);
 
