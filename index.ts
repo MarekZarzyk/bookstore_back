@@ -13,6 +13,8 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
+app.use(express.static("public"));
+app.use("/covers", express.static("covers"));
 app.use(json());
 app.use("/books", BookRouter);
 
